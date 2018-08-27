@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Keyboard Events</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script>
+
+        'use strict';
+
+        let boxTop = 200;
+        let boxLeft = 200;
+
+        document.addEventListener('keydown', (event) => {
+            const keyName = event.key;
+            console.log('keydown event\n\n' + 'key: ' + keyName);
+            if (keyName == "ArrowDown") {
+                boxTop += 10;
+            } else if (keyName == "ArrowUp") {
+                boxTop -= 10;
+            } else if (keyName == "ArrowRight") {
+                boxLeft += 10;
+            } else if (keyName == "ArrowLeft") {
+                boxLeft -= 10;
+            } 
+
+            // code below changes the color of the grey box if any key other than an arrow key is pressed
+                // else if (keyName !== "ArrowUp" || keyName !== "ArrowDown" || keyName !== "ArrowRight" || keyName !== "ArrowLeft") {
+                //     document.getElementById("box").style.backgroundColor = "red";
+                // }
+
+            document.getElementById("box").style.top = boxTop + "px";
+            document.getElementById("box").style.left = boxLeft + "px";
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Use Arrow Keys to Move Kenzie Academy Logo</h1>
+    <div id="box"></div>
+</body>
+</html>
